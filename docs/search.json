@@ -1,0 +1,9 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "CropGBWater 可复现性评估",
+    "section": "",
+    "text": "1 项目概述\n本项目围绕 CropGBWater 项目的可复现性开展评估。复现对象为发表在 Nature Food 的论文：Global spatially explicit crop water consumption shows an overall increase of 9% for 46 agricultural crops from 2010 to 2020。\n本项目不尝试完整复现全部 46 种作物和所有年份，而是选择一个明确、可检查、可运行的局部复现目标：复现 2020 年全球 Maize、Soybean、Rice 和 Wheat 四种主要作物的蓝水与绿水消耗结果。\n\n\n2 复现目标\n本项目重点复现四种作物 2020 年全球总水消耗，并区分雨养绿水、灌溉绿水、蓝水和 Rice 的稻田淹灌附加水耗。\n\n\n3 图 1 四种作物水消耗结构\n\n\n\n4 图 2 论文报告值与本组复现值对照\n\n\n\n5 主要结果\n本组复现结果与论文主文报告值高度一致。Maize 的复现值约为 859.8 km³，论文报告值约为 860 km³；Soybean 的复现值约为 520.9 km³，论文报告值约为 521 km³；Rice 的复现值约为 1183.5 km³，论文报告值约为 1183 km³；Wheat 的复现值约为 765.3 km³，论文报告值约为 765 km³。\n四种作物的相对误差均小于 0.05%，说明在 2020 年四种关键作物全球总量这一局部目标上，CropGBWater 项目具有较高的结果可复现性。\n\n\n6 可复现性评价\n从当前局部复现结果看，CropGBWater 项目的数据公开性较高，作者提供的输出结果能够支持关键作物层面的结果校验。代码层面具备进一步复现基础，但完整端到端复现仍可能受到数据体积、运行环境、路径设置和 notebook 执行顺序的影响。\n\n\n7 局限性\n本项目属于局部复现，尚未完整复现全部 46 种作物、2010—2020 年全部年度结果和所有空间中间变量。该设计的目的是在课程项目范围内构建一个小而完整、可检查、可运行的可复现工作流。"
+  }
+]
