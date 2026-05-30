@@ -25,3 +25,8 @@ data/raw/*
 
 /.quarto/
 **/*.quarto_ipynb
+
+# Keep the four raw Data_S4 files used in this project
+!data/raw/Data_S4_four_crops/
+!data/raw/Data_S4_four_crops/*.csv
+!data/raw/paper_reported_totals_2020.csv
