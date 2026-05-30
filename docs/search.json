@@ -1,9 +1,135 @@
 [
   {
+    "objectID": "report/result_error_analysis.html",
+    "href": "report/result_error_analysis.html",
+    "title": "Untitled",
+    "section": "",
+    "text": "本部分由宋晨迪负责，主要补充本项目的结果误差分析和可视化输出检查。\n\n\n本项目的核心目标是比较本组复现值与论文主文报告值是否一致。为此，本部分进一步计算四种作物的绝对误差和相对误差，并生成误差分析图。\n\n\n\n本部分对应脚本为：\ncode/04_error_analysis.py\n该脚本读取：\noutputs/tables/four_crop_reproduction_summary.csv\n并输出：\noutputs/tables/error_analysis_summary.csv\n以及：\noutputs/figures/fig3_relative_error.png\n\n\n\n误差分析包括三个指标：\n\ndifference_km3：本组复现值减去论文报告值\nabsolute_difference_km3：绝对差异\nrelative_difference_percent：相对差异百分比\n\n相对差异计算方式为：\nrelative difference = difference / paper reported total × 100%\n\n\n\n当前四种作物的相对误差均小于 0.05%。这说明本组在 2020 年四种主要作物全球总水消耗这一局部目标上，能够较好复现论文主文结果。\n从作物层面看：\n\nMaize 和 Soybean 的复现值略低于论文报告值；\nRice 和 Wheat 的复现值略高于论文报告值；\n所有差异均非常小，主要可归因于四舍五入和结果汇总精度差异。\n\n\n\n\n本项目图表均由 Python 脚本自动生成，而不是手工绘制。运行结果汇总脚本和作图脚本后，可以重新生成主要结果表和图表。因此，本项目在图表层面具有较好的可复现性。\n\n\n\n误差分析进一步支持本项目的主要判断：CropGBWater 在 2020 年四种关键作物全球总量结果上具有较高结果可复现性。"
+  },
+  {
+    "objectID": "report/result_error_analysis.html#分析目标",
+    "href": "report/result_error_analysis.html#分析目标",
+    "title": "Untitled",
+    "section": "",
+    "text": "本项目的核心目标是比较本组复现值与论文主文报告值是否一致。为此，本部分进一步计算四种作物的绝对误差和相对误差，并生成误差分析图。"
+  },
+  {
+    "objectID": "report/result_error_analysis.html#对应脚本",
+    "href": "report/result_error_analysis.html#对应脚本",
+    "title": "Untitled",
+    "section": "",
+    "text": "本部分对应脚本为：\ncode/04_error_analysis.py\n该脚本读取：\noutputs/tables/four_crop_reproduction_summary.csv\n并输出：\noutputs/tables/error_analysis_summary.csv\n以及：\noutputs/figures/fig3_relative_error.png"
+  },
+  {
+    "objectID": "report/result_error_analysis.html#误差指标",
+    "href": "report/result_error_analysis.html#误差指标",
+    "title": "Untitled",
+    "section": "",
+    "text": "误差分析包括三个指标：\n\ndifference_km3：本组复现值减去论文报告值\nabsolute_difference_km3：绝对差异\nrelative_difference_percent：相对差异百分比\n\n相对差异计算方式为：\nrelative difference = difference / paper reported total × 100%"
+  },
+  {
+    "objectID": "report/result_error_analysis.html#当前结果解释",
+    "href": "report/result_error_analysis.html#当前结果解释",
+    "title": "Untitled",
+    "section": "",
+    "text": "当前四种作物的相对误差均小于 0.05%。这说明本组在 2020 年四种主要作物全球总水消耗这一局部目标上，能够较好复现论文主文结果。\n从作物层面看：\n\nMaize 和 Soybean 的复现值略低于论文报告值；\nRice 和 Wheat 的复现值略高于论文报告值；\n所有差异均非常小，主要可归因于四舍五入和结果汇总精度差异。"
+  },
+  {
+    "objectID": "report/result_error_analysis.html#图表复现性评价",
+    "href": "report/result_error_analysis.html#图表复现性评价",
+    "title": "Untitled",
+    "section": "",
+    "text": "本项目图表均由 Python 脚本自动生成，而不是手工绘制。运行结果汇总脚本和作图脚本后，可以重新生成主要结果表和图表。因此，本项目在图表层面具有较好的可复现性。"
+  },
+  {
+    "objectID": "report/result_error_analysis.html#小结",
+    "href": "report/result_error_analysis.html#小结",
+    "title": "Untitled",
+    "section": "",
+    "text": "误差分析进一步支持本项目的主要判断：CropGBWater 在 2020 年四种关键作物全球总量结果上具有较高结果可复现性。"
+  },
+  {
+    "objectID": "report/data_source_and_processing.html",
+    "href": "report/data_source_and_processing.html",
+    "title": "",
+    "section": "",
+    "text": "Code\n本项目复现对象为 CropGBWater 项目。原始论文与数据代码来源如下："
+  },
+  {
+    "objectID": "report/data_source_and_processing.html#本项目的数据处理范围",
+    "href": "report/data_source_and_processing.html#本项目的数据处理范围",
+    "title": "",
+    "section": "1 2. 本项目的数据处理范围",
+    "text": "1 2. 本项目的数据处理范围\n由于完整 CropGBWater 数据体积较大，本课程项目采用局部复现策略，重点复现 2020 年四种主要作物：\n\nMaize\nSoybean\nRice\nWheat\n\n本项目使用的 processed 数据文件为：\ndata/processed/four_crop_2020_water_consumption.csv"
+  },
+  {
+    "objectID": "report/data_source_and_processing.html#数据字段说明",
+    "href": "report/data_source_and_processing.html#数据字段说明",
+    "title": "",
+    "section": "2 3. 数据字段说明",
+    "text": "2 3. 数据字段说明\n该 processed 表包括以下字段：\n\ncrop：作物名称\nrainfed_green_km3：雨养绿水消耗，单位为 km³\nirrigated_green_km3：灌溉绿水消耗，单位为 km³\nblue_water_km3：蓝水消耗，单位为 km³\npaddy_flooding_km3：稻田淹灌附加水耗，仅 Rice 使用，单位为 km³\nreproduced_total_km3：本组复现总量，单位为 km³\npaper_reported_total_km3：论文主文报告总量，单位为 km³"
+  },
+  {
+    "objectID": "report/data_source_and_processing.html#处理脚本",
+    "href": "report/data_source_and_processing.html#处理脚本",
+    "title": "",
+    "section": "3 4. 处理脚本",
+    "text": "3 4. 处理脚本\n本部分对应脚本为：\ncode/01_prepare_four_crop_data.py\n该脚本用于生成课程项目使用的轻量级 processed 数据表，使后续总量计算、图表绘制和 Quarto 报告可以在不下载完整原始数据的情况下运行。"
+  },
+  {
+    "objectID": "report/data_source_and_processing.html#说明",
+    "href": "report/data_source_and_processing.html#说明",
+    "title": "",
+    "section": "4 5. 说明",
+    "text": "4 5. 说明\n当前 processed 数据用于课程项目的局部复现和结果校验。若后续开展完整端到端复现，应进一步下载 Zenodo 原始数据，并按作者原始工作流重建所有作物、所有年份和所有空间输出。"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "CropGBWater 可复现性评估",
     "section": "",
     "text": "1 项目概述\n本项目围绕 CropGBWater 项目的可复现性开展评估。复现对象为发表在 Nature Food 的论文：Global spatially explicit crop water consumption shows an overall increase of 9% for 46 agricultural crops from 2010 to 2020。\n本项目不尝试完整复现全部 46 种作物和所有年份，而是选择一个明确、可检查、可运行的局部复现目标：复现 2020 年全球 Maize、Soybean、Rice 和 Wheat 四种主要作物的蓝水与绿水消耗结果。\n\n\n2 复现目标\n本项目重点复现四种作物 2020 年全球总水消耗，并区分雨养绿水、灌溉绿水、蓝水和 Rice 的稻田淹灌附加水耗。\n\n\n3 图 1 四种作物水消耗结构\n\n\n\n4 图 2 论文报告值与本组复现值对照\n\n\n\n5 主要结果\n本组复现结果与论文主文报告值高度一致。Maize 的复现值约为 859.8 km³，论文报告值约为 860 km³；Soybean 的复现值约为 520.9 km³，论文报告值约为 521 km³；Rice 的复现值约为 1183.5 km³，论文报告值约为 1183 km³；Wheat 的复现值约为 765.3 km³，论文报告值约为 765 km³。\n四种作物的相对误差均小于 0.05%，说明在 2020 年四种关键作物全球总量这一局部目标上，CropGBWater 项目具有较高的结果可复现性。\n\n\n6 可复现性评价\n从当前局部复现结果看，CropGBWater 项目的数据公开性较高，作者提供的输出结果能够支持关键作物层面的结果校验。代码层面具备进一步复现基础，但完整端到端复现仍可能受到数据体积、运行环境、路径设置和 notebook 执行顺序的影响。\n\n\n7 局限性\n本项目属于局部复现，尚未完整复现全部 46 种作物、2010—2020 年全部年度结果和所有空间中间变量。该设计的目的是在课程项目范围内构建一个小而完整、可检查、可运行的可复现工作流。"
+  },
+  {
+    "objectID": "report/report/workflow.html",
+    "href": "report/report/workflow.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
+    "objectID": "report/report/workflow.html#step-1",
+    "href": "report/report/workflow.html#step-1",
+    "title": "",
+    "section": "1.1 Step 1",
+    "text": "1.1 Step 1\nRun:\npython code/01_prepare_four_crop_data.py"
+  },
+  {
+    "objectID": "report/report/workflow.html#step-2",
+    "href": "report/report/workflow.html#step-2",
+    "title": "",
+    "section": "1.2 Step 2",
+    "text": "1.2 Step 2\nRun:\npython code/02_calculate_totals.py"
+  },
+  {
+    "objectID": "report/report/workflow.html#step-3",
+    "href": "report/report/workflow.html#step-3",
+    "title": "",
+    "section": "1.3 Step 3",
+    "text": "1.3 Step 3\nRun:\npython code/03_make_figures.py"
+  },
+  {
+    "objectID": "report/report/workflow.html#step-4",
+    "href": "report/report/workflow.html#step-4",
+    "title": "",
+    "section": "1.4 Step 4",
+    "text": "1.4 Step 4\nRun:\npython code/04_error_analysis.py"
+  },
+  {
+    "objectID": "report/report/workflow.html#step-5",
+    "href": "report/report/workflow.html#step-5",
+    "title": "",
+    "section": "1.5 Step 5",
+    "text": "1.5 Step 5\nRun:\npython code/05_reproducibility_check.py"
   }
 ]

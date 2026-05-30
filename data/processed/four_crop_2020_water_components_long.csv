@@ -1,0 +1,17 @@
+crop,component,water_consumption_km3
+Maize,Rainfed green water,664.8483857935229
+Maize,Irrigated green water,99.1655166356829
+Maize,Blue water,95.75753654471801
+Maize,Paddy flooding,0.0
+Soybean,Rainfed green water,491.1440468709873
+Soybean,Irrigated green water,14.013416511159114
+Soybean,Blue water,15.758718582491914
+Soybean,Paddy flooding,0.0
+Rice,Rainfed green water,308.7425876734597
+Rice,Irrigated green water,397.8822031751864
+Rice,Blue water,328.2286648333899
+Rice,Paddy flooding,148.61999615431125
+Wheat,Rainfed green water,468.3171316645212
+Wheat,Irrigated green water,84.63883162226344
+Wheat,Blue water,212.31851649175007
+Wheat,Paddy flooding,0.0
