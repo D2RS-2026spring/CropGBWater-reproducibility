@@ -146,11 +146,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#项目概述" id="toc-项目概述" class="nav-link active" data-scroll-target="#项目概述"><span class="header-section-number">1</span> 项目概述</a></li>
   <li><a href="#复现目标" id="toc-复现目标" class="nav-link" data-scroll-target="#复现目标"><span class="header-section-number">2</span> 复现目标</a></li>
-  <li><a href="#图-1-四种作物水消耗结构" id="toc-图-1-四种作物水消耗结构" class="nav-link" data-scroll-target="#图-1-四种作物水消耗结构"><span class="header-section-number">3</span> 图 1 四种作物水消耗结构</a></li>
-  <li><a href="#图-2-论文报告值与本组复现值对照" id="toc-图-2-论文报告值与本组复现值对照" class="nav-link" data-scroll-target="#图-2-论文报告值与本组复现值对照"><span class="header-section-number">4</span> 图 2 论文报告值与本组复现值对照</a></li>
-  <li><a href="#主要结果" id="toc-主要结果" class="nav-link" data-scroll-target="#主要结果"><span class="header-section-number">5</span> 主要结果</a></li>
-  <li><a href="#可复现性评价" id="toc-可复现性评价" class="nav-link" data-scroll-target="#可复现性评价"><span class="header-section-number">6</span> 可复现性评价</a></li>
-  <li><a href="#局限性" id="toc-局限性" class="nav-link" data-scroll-target="#局限性"><span class="header-section-number">7</span> 局限性</a></li>
+  <li><a href="#数据与代码闭环" id="toc-数据与代码闭环" class="nav-link" data-scroll-target="#数据与代码闭环"><span class="header-section-number">3</span> 数据与代码闭环</a></li>
+  <li><a href="#快速复现" id="toc-快速复现" class="nav-link" data-scroll-target="#快速复现"><span class="header-section-number">4</span> 快速复现</a></li>
+  <li><a href="#图-1-四种作物水消耗结构" id="toc-图-1-四种作物水消耗结构" class="nav-link" data-scroll-target="#图-1-四种作物水消耗结构"><span class="header-section-number">5</span> 图 1 四种作物水消耗结构</a></li>
+  <li><a href="#图-2-论文报告值与本组复现值对照" id="toc-图-2-论文报告值与本组复现值对照" class="nav-link" data-scroll-target="#图-2-论文报告值与本组复现值对照"><span class="header-section-number">6</span> 图 2 论文报告值与本组复现值对照</a></li>
+  <li><a href="#图-3-相对误差" id="toc-图-3-相对误差" class="nav-link" data-scroll-target="#图-3-相对误差"><span class="header-section-number">7</span> 图 3 相对误差</a></li>
+  <li><a href="#主要结果" id="toc-主要结果" class="nav-link" data-scroll-target="#主要结果"><span class="header-section-number">8</span> 主要结果</a></li>
+  <li><a href="#独立复现测试" id="toc-独立复现测试" class="nav-link" data-scroll-target="#独立复现测试"><span class="header-section-number">9</span> 独立复现测试</a></li>
+  <li><a href="#可复现性评价" id="toc-可复现性评价" class="nav-link" data-scroll-target="#可复现性评价"><span class="header-section-number">10</span> 可复现性评价</a></li>
+  <li><a href="#局限性" id="toc-局限性" class="nav-link" data-scroll-target="#局限性"><span class="header-section-number">11</span> 局限性</a></li>
   </ul>
 </nav>
     </div>
@@ -160,7 +164,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">CropGBWater 可复现性评估</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<p class="subtitle lead">2020 年全球四种主粮作物蓝绿水消耗复现</p>
+<p class="subtitle lead">2020 年全球四种主要作物蓝绿水消耗复现</p>
 </div>
 
 
@@ -179,33 +183,95 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="项目概述" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> 项目概述</h1>
-<p>本项目围绕 CropGBWater 项目的可复现性开展评估。复现对象为发表在 Nature Food 的论文：Global spatially explicit crop water consumption shows an overall increase of 9% for 46 agricultural crops from 2010 to 2020。</p>
-<p>本项目不尝试完整复现全部 46 种作物和所有年份，而是选择一个明确、可检查、可运行的局部复现目标：复现 2020 年全球 Maize、Soybean、Rice 和 Wheat 四种主要作物的蓝水与绿水消耗结果。</p>
+<p>本项目围绕 CropGBWater 项目的结果可复现性开展评估。复现对象为发表在 <em>Nature Food</em> 的论文：<em>Global spatially explicit crop water consumption shows an overall increase of 9% for 46 agricultural crops from 2010 to 2020</em>。</p>
+<p>本项目不尝试完整复现全部 46 种作物和所有年份，而是选择一个明确、可检查、可运行的局部复现目标：基于作者公开的 Data_S4 2020 年格点结果文件，复现 Maize、Soybean、Rice 和 Wheat 四种主要作物的全球蓝水与绿水消耗总量，并与论文主文报告值进行对照。</p>
 </section>
 <section id="复现目标" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> 复现目标</h1>
-<p>本项目重点复现四种作物 2020 年全球总水消耗，并区分雨养绿水、灌溉绿水、蓝水和 Rice 的稻田淹灌附加水耗。</p>
+<p>本项目重点复现四种作物 2020 年全球总水消耗，并区分以下组成部分：</p>
+<ul>
+<li>雨养绿水；</li>
+<li>灌溉绿水；</li>
+<li>蓝水；</li>
+<li>Rice 的稻田淹灌附加水耗。</li>
+</ul>
 </section>
-<section id="图-1-四种作物水消耗结构" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> 图 1 四种作物水消耗结构</h1>
+<section id="数据与代码闭环" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> 数据与代码闭环</h1>
+<p>本项目将四个 Data_S4 原始格点 CSV 文件直接放入仓库：</p>
+<pre class="text"><code>data/raw/Data_S4_four_crops/
+├── Data_S4_Y2020_WF_Maize_grid_avg.csv
+├── Data_S4_Y2020_WF_Rice_grid_avg.csv
+├── Data_S4_Y2020_WF_Soybean_grid_avg.csv
+└── Data_S4_Y2020_WF_Wheat_grid_avg.csv</code></pre>
+<p>运行以下命令即可从原始 Data_S4 文件重新生成 processed 数据、结果表和图件：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> code/run_all.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>该命令会依次运行：</p>
+<pre class="text"><code>00_check_required_data.py
+01_prepare_four_crop_data.py
+02_calculate_totals.py
+03_make_figures.py
+04_error_analysis.py
+05_reproducibility_check.py</code></pre>
+</section>
+<section id="快速复现" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> 快速复现</h1>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/D2RS-2026spring/CropGBWater-reproducibility.git</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> CropGBWater-reproducibility</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> code/run_all.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>运行完成后，主要输出包括：</p>
+<pre class="text"><code>data/processed/four_crop_2020_water_consumption.csv
+data/processed/four_crop_2020_water_components_long.csv
+outputs/tables/four_crop_reproduction_summary.csv
+outputs/tables/error_analysis_summary.csv
+outputs/tables/reproducibility_check.csv
+outputs/figures/fig1_water_structure.png
+outputs/figures/fig2_reproduced_vs_reported.png
+outputs/figures/fig3_relative_error.png</code></pre>
+</section>
+<section id="图-1-四种作物水消耗结构" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> 图 1 四种作物水消耗结构</h1>
 <p><img src="outputs/figures/fig1_water_structure.png" class="img-fluid"></p>
 </section>
-<section id="图-2-论文报告值与本组复现值对照" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> 图 2 论文报告值与本组复现值对照</h1>
+<section id="图-2-论文报告值与本组复现值对照" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> 图 2 论文报告值与本组复现值对照</h1>
 <p><img src="outputs/figures/fig2_reproduced_vs_reported.png" class="img-fluid"></p>
 </section>
-<section id="主要结果" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> 主要结果</h1>
-<p>本组复现结果与论文主文报告值高度一致。Maize 的复现值约为 859.8 km³，论文报告值约为 860 km³；Soybean 的复现值约为 520.9 km³，论文报告值约为 521 km³；Rice 的复现值约为 1183.5 km³，论文报告值约为 1183 km³；Wheat 的复现值约为 765.3 km³，论文报告值约为 765 km³。</p>
-<p>四种作物的相对误差均小于 0.05%，说明在 2020 年四种关键作物全球总量这一局部目标上，CropGBWater 项目具有较高的结果可复现性。</p>
+<section id="图-3-相对误差" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> 图 3 相对误差</h1>
+<p><img src="outputs/figures/fig3_relative_error.png" class="img-fluid"></p>
 </section>
-<section id="可复现性评价" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> 可复现性评价</h1>
-<p>从当前局部复现结果看，CropGBWater 项目的数据公开性较高，作者提供的输出结果能够支持关键作物层面的结果校验。代码层面具备进一步复现基础，但完整端到端复现仍可能受到数据体积、运行环境、路径设置和 notebook 执行顺序的影响。</p>
+<section id="主要结果" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> 主要结果</h1>
+<p>本组基于 Data_S4 原始格点结果重新汇总得到的四种作物 2020 年全球总水消耗与论文主文报告值高度一致：</p>
+<ul>
+<li>Maize：复现值约 859.77 km³，论文报告值约 860 km³，相对误差约 -0.027%。</li>
+<li>Soybean：复现值约 520.92 km³，论文报告值约 521 km³，相对误差约 -0.016%。</li>
+<li>Rice：复现值约 1183.47 km³，论文报告值约 1183 km³，相对误差约 0.040%。</li>
+<li>Wheat：复现值约 765.27 km³，论文报告值约 765 km³，相对误差约 0.036%。</li>
+</ul>
+<p>四种作物的相对误差均小于 0.05%，说明在 2020 年四种关键作物全球总量这一局部目标上，CropGBWater 公开结果具有较高的结果可复现性。</p>
 </section>
-<section id="局限性" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> 局限性</h1>
-<p>本项目属于局部复现，尚未完整复现全部 46 种作物、2010—2020 年全部年度结果和所有空间中间变量。该设计的目的是在课程项目范围内构建一个小而完整、可检查、可运行的可复现工作流。</p>
+<section id="独立复现测试" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> 独立复现测试</h1>
+<p>本项目已进行独立 clone 测试。测试流程为：</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/D2RS-2026spring/CropGBWater-reproducibility.git</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> CropGBWater-reproducibility</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> code/run_all.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>测试结果表明，仓库可以从内置的四个 Data_S4 原始 CSV 文件重新生成 processed 数据、结果表和图件。运行最终输出为：</p>
+<pre class="text"><code>All required files exist.
+All reproduction steps completed.</code></pre>
+</section>
+<section id="可复现性评价" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> 可复现性评价</h1>
+<p>从当前局部复现结果看，CropGBWater 项目在关键结果数据公开性方面表现较好。作者公开的 Data_S4 格点结果能够支持四种关键作物 2020 年全球总量的独立汇总与结果校验。</p>
+<p>本项目当前实现的是“结果数据层面的局部复现”，即基于作者公开的标准格点输出重新汇总主文关键结果。它不等同于完整运行 CropGBWater 原始逐日模型。</p>
+</section>
+<section id="局限性" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> 局限性</h1>
+<p>本项目尚未完整复现全部 46 种作物、2010—2020 年全部年度、完整逐日 CropGBWater 原始模型和所有空间中间变量。该设计的目的是在课程项目范围内构建一个小而完整、可检查、可运行的复现工作流。</p>
 
 
 <!-- -->
@@ -664,43 +730,128 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "CropGBWater 可复现性评估"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "2020 年全球四种主粮作物蓝绿水消耗复现"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu"># 项目概述</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>本项目围绕 CropGBWater 项目的可复现性开展评估。复现对象为发表在 Nature Food 的论文：Global spatially explicit crop water consumption shows an overall increase of 9% for 46 agricultural crops from 2010 to 2020。</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>本项目不尝试完整复现全部 46 种作物和所有年份，而是选择一个明确、可检查、可运行的局部复现目标：复现 2020 年全球 Maize、Soybean、Rice 和 Wheat 四种主要作物的蓝水与绿水消耗结果。</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu"># 复现目标</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>本项目重点复现四种作物 2020 年全球总水消耗，并区分雨养绿水、灌溉绿水、蓝水和 Rice 的稻田淹灌附加水耗。</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu"># 图 1 四种作物水消耗结构</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="al">![](outputs/figures/fig1_water_structure.png)</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu"># 图 2 论文报告值与本组复现值对照</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="al">![](outputs/figures/fig2_reproduced_vs_reported.png)</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu"># 主要结果</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>本组复现结果与论文主文报告值高度一致。Maize 的复现值约为 859.8 km³，论文报告值约为 860 km³；Soybean 的复现值约为 520.9 km³，论文报告值约为 521 km³；Rice 的复现值约为 1183.5 km³，论文报告值约为 1183 km³；Wheat 的复现值约为 765.3 km³，论文报告值约为 765 km³。</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>四种作物的相对误差均小于 0.05%，说明在 2020 年四种关键作物全球总量这一局部目标上，CropGBWater 项目具有较高的结果可复现性。</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu"># 可复现性评价</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>从当前局部复现结果看，CropGBWater 项目的数据公开性较高，作者提供的输出结果能够支持关键作物层面的结果校验。代码层面具备进一步复现基础，但完整端到端复现仍可能受到数据体积、运行环境、路径设置和 notebook 执行顺序的影响。</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="fu"># 局限性</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>本项目属于局部复现，尚未完整复现全部 46 种作物、2010—2020 年全部年度结果和所有空间中间变量。该设计的目的是在课程项目范围内构建一个小而完整、可检查、可运行的可复现工作流。</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "CropGBWater 可复现性评估"</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "2020 年全球四种主要作物蓝绿水消耗复现"</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu"># 项目概述</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>本项目围绕 CropGBWater 项目的结果可复现性开展评估。复现对象为发表在 *Nature Food* 的论文：*Global spatially explicit crop water consumption shows an overall increase of 9% for 46 agricultural crops from 2010 to 2020*。</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>本项目不尝试完整复现全部 46 种作物和所有年份，而是选择一个明确、可检查、可运行的局部复现目标：基于作者公开的 Data_S4 2020 年格点结果文件，复现 Maize、Soybean、Rice 和 Wheat 四种主要作物的全球蓝水与绿水消耗总量，并与论文主文报告值进行对照。</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="fu"># 复现目标</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>本项目重点复现四种作物 2020 年全球总水消耗，并区分以下组成部分：</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>雨养绿水；</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>灌溉绿水；</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>蓝水；</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Rice 的稻田淹灌附加水耗。</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="fu"># 数据与代码闭环</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>本项目将四个 Data_S4 原始格点 CSV 文件直接放入仓库：</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="in">```text</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="in">data/raw/Data_S4_four_crops/</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="in">├── Data_S4_Y2020_WF_Maize_grid_avg.csv</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="in">├── Data_S4_Y2020_WF_Rice_grid_avg.csv</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="in">├── Data_S4_Y2020_WF_Soybean_grid_avg.csv</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="in">└── Data_S4_Y2020_WF_Wheat_grid_avg.csv</span></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>运行以下命令即可从原始 Data_S4 文件重新生成 processed 数据、结果表和图件：</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> code/run_all.py</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>该命令会依次运行：</span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a><span class="in">```text</span></span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a><span class="in">00_check_required_data.py</span></span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a><span class="in">01_prepare_four_crop_data.py</span></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a><span class="in">02_calculate_totals.py</span></span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a><span class="in">03_make_figures.py</span></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a><span class="in">04_error_analysis.py</span></span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a><span class="in">05_reproducibility_check.py</span></span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a><span class="fu"># 快速复现</span></span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/D2RS-2026spring/CropGBWater-reproducibility.git</span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> CropGBWater-reproducibility</span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> code/run_all.py</span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>运行完成后，主要输出包括：</span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a><span class="in">```text</span></span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a><span class="in">data/processed/four_crop_2020_water_consumption.csv</span></span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a><span class="in">data/processed/four_crop_2020_water_components_long.csv</span></span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a><span class="in">outputs/tables/four_crop_reproduction_summary.csv</span></span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a><span class="in">outputs/tables/error_analysis_summary.csv</span></span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a><span class="in">outputs/tables/reproducibility_check.csv</span></span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a><span class="in">outputs/figures/fig1_water_structure.png</span></span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a><span class="in">outputs/figures/fig2_reproduced_vs_reported.png</span></span>
+<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a><span class="in">outputs/figures/fig3_relative_error.png</span></span>
+<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a><span class="fu"># 图 1 四种作物水消耗结构</span></span>
+<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a><span class="al">![](outputs/figures/fig1_water_structure.png)</span></span>
+<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a><span class="fu"># 图 2 论文报告值与本组复现值对照</span></span>
+<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a><span class="al">![](outputs/figures/fig2_reproduced_vs_reported.png)</span></span>
+<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a><span class="fu"># 图 3 相对误差</span></span>
+<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a><span class="al">![](outputs/figures/fig3_relative_error.png)</span></span>
+<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a><span class="fu"># 主要结果</span></span>
+<span id="cb8-86"><a href="#cb8-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-87"><a href="#cb8-87" aria-hidden="true" tabindex="-1"></a>本组基于 Data_S4 原始格点结果重新汇总得到的四种作物 2020 年全球总水消耗与论文主文报告值高度一致：</span>
+<span id="cb8-88"><a href="#cb8-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-89"><a href="#cb8-89" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Maize：复现值约 859.77 km³，论文报告值约 860 km³，相对误差约 -0.027%。</span>
+<span id="cb8-90"><a href="#cb8-90" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Soybean：复现值约 520.92 km³，论文报告值约 521 km³，相对误差约 -0.016%。</span>
+<span id="cb8-91"><a href="#cb8-91" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Rice：复现值约 1183.47 km³，论文报告值约 1183 km³，相对误差约 0.040%。</span>
+<span id="cb8-92"><a href="#cb8-92" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Wheat：复现值约 765.27 km³，论文报告值约 765 km³，相对误差约 0.036%。</span>
+<span id="cb8-93"><a href="#cb8-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-94"><a href="#cb8-94" aria-hidden="true" tabindex="-1"></a>四种作物的相对误差均小于 0.05%，说明在 2020 年四种关键作物全球总量这一局部目标上，CropGBWater 公开结果具有较高的结果可复现性。</span>
+<span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-96"><a href="#cb8-96" aria-hidden="true" tabindex="-1"></a><span class="fu"># 独立复现测试</span></span>
+<span id="cb8-97"><a href="#cb8-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a>本项目已进行独立 clone 测试。测试流程为：</span>
+<span id="cb8-99"><a href="#cb8-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-100"><a href="#cb8-100" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
+<span id="cb8-101"><a href="#cb8-101" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/D2RS-2026spring/CropGBWater-reproducibility.git</span>
+<span id="cb8-102"><a href="#cb8-102" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> CropGBWater-reproducibility</span>
+<span id="cb8-103"><a href="#cb8-103" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span>
+<span id="cb8-104"><a href="#cb8-104" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> code/run_all.py</span>
+<span id="cb8-105"><a href="#cb8-105" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-106"><a href="#cb8-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-107"><a href="#cb8-107" aria-hidden="true" tabindex="-1"></a>测试结果表明，仓库可以从内置的四个 Data_S4 原始 CSV 文件重新生成 processed 数据、结果表和图件。运行最终输出为：</span>
+<span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-109"><a href="#cb8-109" aria-hidden="true" tabindex="-1"></a><span class="in">```text</span></span>
+<span id="cb8-110"><a href="#cb8-110" aria-hidden="true" tabindex="-1"></a><span class="in">All required files exist.</span></span>
+<span id="cb8-111"><a href="#cb8-111" aria-hidden="true" tabindex="-1"></a><span class="in">All reproduction steps completed.</span></span>
+<span id="cb8-112"><a href="#cb8-112" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-113"><a href="#cb8-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-114"><a href="#cb8-114" aria-hidden="true" tabindex="-1"></a><span class="fu"># 可复现性评价</span></span>
+<span id="cb8-115"><a href="#cb8-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-116"><a href="#cb8-116" aria-hidden="true" tabindex="-1"></a>从当前局部复现结果看，CropGBWater 项目在关键结果数据公开性方面表现较好。作者公开的 Data_S4 格点结果能够支持四种关键作物 2020 年全球总量的独立汇总与结果校验。</span>
+<span id="cb8-117"><a href="#cb8-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-118"><a href="#cb8-118" aria-hidden="true" tabindex="-1"></a>本项目当前实现的是“结果数据层面的局部复现”，即基于作者公开的标准格点输出重新汇总主文关键结果。它不等同于完整运行 CropGBWater 原始逐日模型。</span>
+<span id="cb8-119"><a href="#cb8-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-120"><a href="#cb8-120" aria-hidden="true" tabindex="-1"></a><span class="fu"># 局限性</span></span>
+<span id="cb8-121"><a href="#cb8-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-122"><a href="#cb8-122" aria-hidden="true" tabindex="-1"></a>本项目尚未完整复现全部 46 种作物、2010—2020 年全部年度、完整逐日 CropGBWater 原始模型和所有空间中间变量。该设计的目的是在课程项目范围内构建一个小而完整、可检查、可运行的复现工作流。</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

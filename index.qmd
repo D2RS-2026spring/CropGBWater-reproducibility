@@ -1,9 +1,8 @@
 ---
-
 title: "CropGBWater 可复现性评估"
 subtitle: "2020 年全球四种主要作物蓝绿水消耗复现"
 format: html
-------------
+---
 
 # 项目概述
 
